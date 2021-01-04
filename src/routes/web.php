@@ -33,6 +33,8 @@ Route::get('/image/{id}',[ImagesController::class,'info']);
 
 Route::post('/image/create',[ImagesController::class,'uploadFile'])->name('upload.uploadFile');
 
+Route::post('/image/search',[ImagesController::class,'search'])->name('search');
+
 //Route::patch('/image/edit/{id}',[ImagesController::class,'update']);
 
 //Route::delete('/image/delete/{id}',[ImagesController::class,'destroy']);

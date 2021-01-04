@@ -44,7 +44,7 @@ class ImagesController extends Controller
     public function uploadFile(Request $request)
     {
         session_start();
-        
+
         $this->validate(request(),[
             'title' => 'required|min:1|max:50',
             'description' => 'required|min:1|max:250',
@@ -67,11 +67,11 @@ class ImagesController extends Controller
      * @param  \App\Models\Facture  $facture
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function search(Request $request)
     {
-        $facture = Facture::findOrFail($id);
+        $images = Image::where('title', 'LIKE', '%'.$request['search'].'%')->orWhere('description', 'LIKE', '%'.$request['search'].'%')->orWhere('user', 'LIKE', '%'.$request['search'].'%')->get();
         
-        return view('facture/edit',compact('facture'));
+        return view('images/index',compact('images'));
     }
 
     /**

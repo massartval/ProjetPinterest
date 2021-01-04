@@ -1,11 +1,26 @@
 @extends('layout.app')
 
-@section('title', 'clients')
+@section('title', 'home')
 
-@section('h1Title', 'Gestionnaire clients - factures')
+@section('h1Title', 'All images')
 @section('content')
+    <div class="row mb-3">
+        <div class="col">
+            <form action="{{route('search')}}" method="POST">
+            {{ csrf_field() }}
+            <input type="text" name="search" placeholder="search...">
+            <input type="submit" name="submit">
+            </form>
+            <a href="/">remove filter</a>
+        </div>
+    </div>
+    <div class="row gallery">
         @foreach($images as $image)
-            <a href="/image/{{$image->id}}" target="_blank"><img src="{{asset("storage/$image->path")}}" alt="wtf"></a>
-            
+                <div class="item">
+                    <h4>{{$image->title}}</h4>
+                    <a href="/image/{{$image->id}}" target="_blank"><img class="images" src="{{asset("storage/$image->path")}}" alt="wtf"></a> 
+                </div>
         @endforeach
+    </div>
+
 @endsection
