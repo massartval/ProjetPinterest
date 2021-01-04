@@ -7,10 +7,14 @@
         <title>@yield('title')</title>
     </head>
     <body>
-        <div class="header">
+    <header>
+    <a href="/">Home</a>
+    <a href="/image/create">new image</a>
+    </header>
+        <div>
             <h1>@yield('h1Title')</h1>
         </div>
-        <div class="content">
+        <div>
            @yield('content') 
         </div>
         

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-//use App\Models\Facture;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class ImagesController extends Controller
@@ -14,8 +14,15 @@ class ImagesController extends Controller
      */
     public function index()
     {
-        $factures = Facture::get();
-        return view('facture/index', compact('factures'));
+        $images = Image::get();
+        return view('images/index', compact('images'));
+    }
+
+    public function info($id)
+    {
+        $image = Image::findOrFail($id);
+        
+        return view('images/info',compact('image'));
     }
 
     /**
@@ -25,7 +32,7 @@ class ImagesController extends Controller
      */
     public function create()
     {
-        return view('facture/create');
+        return view('images/create');
     }
 
     /**
@@ -34,37 +41,24 @@ class ImagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function uploadFile(Request $request)
     {
+        session_start();
+        
         $this->validate(request(),[
-            'ref' => 'required|min:2|max:50',
-            'title' => 'required|min:2|max:20',
-            'price' => 'required|min:1|max:50',
-            'tva' => 'required|min:2|max:100',
-            'total' => 'required|min:2|max:50',
-            'client' => 'required|min:2|max:50'
+            'title' => 'required|min:1|max:50',
+            'description' => 'required|min:1|max:250',
         ]);
 
-        Facture::create([
-            'ref' => $request['ref'],
+        $path = $request->file->store('images', 'public');
+
+        Image::create([
+            'user' => $_SESSION['user'],
             'title' => $request['title'],
-            'price' => $request['price'],
-            'tva' => $request['tva'],
-            'total' => $request['total'],
-            'client' => $request['client']
-        ]);
+            'description' => $request['description'],
+            'path' => $path,
+        ]);;
         return $this->index();
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Facture  $facture
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Facture $facture)
-    {
-        //
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\FactureController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ImagesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,23 +13,27 @@ use App\Http\Controllers\FactureController;
 |
  */
 
-Route::get('/', [ProfileController::class, 'index']);
+Route::get('/', [ImagesController::class, 'index']);
 
 ////PROFILE////
 
-Route::get('/login', [ProfileController::class, 'login']);
+/* Route::get('/login', [ProfileController::class, 'login']);
 
 Route::get('/register', [ProfileController::class, 'register']);
 
-Route::get('/profile/{id}', [ProfileController::class, 'profile']);
+Route::get('/profile/{id}', [ProfileController::class, 'profile']); */
 
 //IMAGES//
 
-Route::get('/image/{id}',[ImagesController::class,'image']);
+//Route::get('/image/{id}',[ImagesController::class,'image']);
 
-Route::post('/image/create',[ImagesController::class,'store']);
+Route::get('/image/create',[ImagesController::class,'create']);
 
-Route::patch('/image/edit/{id}',[ImagesController::class,'update']);
+Route::get('/image/{id}',[ImagesController::class,'info']);
 
-Route::delete('/image/delete/{id}',[ImagesController::class,'destroy']);
+Route::post('/image/create',[ImagesController::class,'uploadFile'])->name('upload.uploadFile');
+
+//Route::patch('/image/edit/{id}',[ImagesController::class,'update']);
+
+//Route::delete('/image/delete/{id}',[ImagesController::class,'destroy']);
 
