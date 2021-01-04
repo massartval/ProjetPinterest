@@ -17,32 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-////CLIENT////
+////PROFILE////
 
-Route::get('/clients', [ClientController::class, 'index']);
+Route::get('/login', [ProfileController::class, 'login']);
 
-Route::get('/client/create', [ClientController::class, 'create']);
+Route::get('/register', [ProfileController::class, 'register']);
 
-Route::post('/client/create',[ClientController::class,'store']);
+Route::get('/profile/{id}', [ProfileController::class, 'profile']);
 
-Route::get('/client/edit/{id}',[ClientController::class,'edit']);
+//IMAGES//
 
-Route::patch('/client/edit/{id}',[ClientController::class,'update']);
+Route::get('/image/{id}',[ImagesController::class,'image']);
 
-Route::delete('/client/delete/{id}',[ClientController::class,'destroy']);
+Route::post('/image/create',[ImagesController::class,'store']);
 
-////Facture/////
+Route::patch('/image/edit/{id}',[ImagesController::class,'update']);
 
-Route::get('/factures', [FactureController::class, 'index']);
+Route::delete('/image/delete/{id}',[ImagesController::class,'destroy']);
 
-Route::get('/restaurant/show/{id}', [FactureController::class, 'show']);
-
-Route::get('/facture/create', [FactureController::class, 'create']);
-
-Route::post('/facture/create',[FactureController::class,'store']);
-
-Route::get('/facture/edit/{id}',[FactureController::class,'edit']);
-
-Route::patch('/facture/edit/{id}',[FactureController::class,'update']);
-
-Route::delete('/facture/delete/{id}',[FactureController::class,'destroy']);

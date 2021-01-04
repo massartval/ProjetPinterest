@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Facture;
+//use App\Models\Facture;
 use Illuminate\Http\Request;
 
-class FactureController extends Controller
+class ImagesController extends Controller
 {
     /**
      * Display a listing of the resource.
