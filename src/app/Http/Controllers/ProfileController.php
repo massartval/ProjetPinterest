@@ -14,8 +14,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $clients = Client::get();
-        return view('client/index', compact('clients'));
+        $images = Images::get();
+        return view('client/index', compact('images'));
     }
 
     /**
