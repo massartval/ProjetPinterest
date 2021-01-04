@@ -1,0 +1,60 @@
+.header {
+    background-color: rgb(187, 12, 12);
+    color: white;
+    height: 30vh;
+    width: 99%;
+    margin-left: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row {
+    display: flex;
+    justify-content: space-around;
+}
+.content {
+    margin-left: 3rem;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    img {
+        height: 160px;
+        width: 250px;
+    }
+}
+
+a {
+    margin-top: 1rem;
+    color: rgb(187, 12, 12);
+    text-decoration: none;
+}
+
+.submit {
+    background-color: rgb(187, 12, 12);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    width: 20%;
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: rgb(187, 12, 12);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+}
+
+form {
+    input {
+        margin-bottom: 10px;
+    }
+}
+
+table {
+    width: 100%;
+    td {
+        text-align: center;
+    }
+}

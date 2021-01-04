@@ -1,0 +1,78 @@
+.header {
+  background-color: #bb0c0c;
+  color: white;
+  height: 30vh;
+  width: 99%;
+  margin-left: 1%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.content {
+  margin-left: 3rem;
+}
+
+.column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.column img {
+  height: 160px;
+  width: 250px;
+}
+
+a {
+  margin-top: 1rem;
+  color: #bb0c0c;
+  text-decoration: none;
+}
+
+.submit {
+  background-color: #bb0c0c;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  width: 20%;
+  margin-top: 10px;
+}
+
+.btn {
+  background-color: #bb0c0c;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+}
+
+form input {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+table td {
+  text-align: center;
+}
+/*# sourceMappingURL=style.css.map */
