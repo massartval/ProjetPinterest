@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ImagesController extends Controller
 {
@@ -43,7 +44,6 @@ class ImagesController extends Controller
      */
     public function uploadFile(Request $request)
     {
-        session_start();
 
         $this->validate(request(),[
             'title' => 'required|min:1|max:50',
@@ -53,7 +53,7 @@ class ImagesController extends Controller
         $path = $request->file->store('images', 'public');
 
         Image::create([
-            'user' => $_SESSION['user'],
+            'user' => Auth::user()["pseudo"],
             'title' => $request['title'],
             'description' => $request['description'],
             'path' => $path,

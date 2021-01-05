@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,10 +13,10 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function logout()
+    public function profile($id)
     {
-        Auth::logout();
-        $images = Image::get();
-        return view('images/index', compact('images'));
+        $infos = User::where('id', '=', $id)->get();
+        
+        return view('profile/dashboard',compact('infos'));
     }
 }

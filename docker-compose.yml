@@ -97,10 +97,6 @@ services:
     volumes:
       - ./src:/var/www/html:delegated
     working_dir: /var/www/html
-    links:
-      - composer
-    depends_on:
-      - composer
     user: laravel
     entrypoint: ["php", "/var/www/html/artisan"]
     networks:

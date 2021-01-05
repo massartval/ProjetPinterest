@@ -13,8 +13,9 @@
             <a href="/">Home</a>
             <a href="/image/create">new image</a>
         </div>
-        <div class="ml-3">
+        <div class="ml-3 d-flex">
         @if(Auth::check())
+        <a href="/profile/{{Auth::user()["id"]}}">{{Auth::user()["pseudo"]}}</a>
         <form action="/logout" method="post">
         @csrf
         <input type="submit" value="Logout">

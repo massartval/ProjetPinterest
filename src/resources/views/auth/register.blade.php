@@ -10,8 +10,23 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-label for="profile_picture_path" value="{{ __('Profile_picture_path') }}" />
+                <x-jet-input id="profile_picture_path" class="block mt-1 w-full" type="file" name="profile_picture_path" :value="old('profile_picture_path')" required autofocus autocomplete="profile_picture_path" />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="first_name" value="{{ __('First_name') }}" />
+                <x-jet-input id="first_name" class="block mt-1 w-full" type="first_name" name="first_name" :value="old('first_name')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="last_name" value="{{ __('Last_name') }}" />
+                <x-jet-input id="last_name" class="block mt-1 w-full" type="last_name" name="last_name" :value="old('last_name')" required />
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="pseudo" value="{{ __('Pseudo') }}" />
+                <x-jet-input id="pseudo" class="block mt-1 w-full" type="pseudo" name="pseudo" :value="old('pseudo')" required />
             </div>
 
             <div class="mt-4">
