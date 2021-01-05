@@ -96,9 +96,11 @@ services:
     container_name: pinterest-artisan
     volumes:
       - ./src:/var/www/html:delegated
-    depends_on:
-      - mysqldb
     working_dir: /var/www/html
+    links:
+      - composer
+    depends_on:
+      - composer
     user: laravel
     entrypoint: ["php", "/var/www/html/artisan"]
     networks:

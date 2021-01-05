@@ -14,8 +14,15 @@
             <a href="/image/create">new image</a>
         </div>
         <div class="ml-3">
-            <a href="">Register</a>
-            <a href="">Login</a>
+        @if(Auth::check())
+        <form action="/logout" method="post">
+        @csrf
+        <input type="submit" value="Logout">
+        </form>
+        @else
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+        @endif
         </div>
     </header>
     <div class="container">
