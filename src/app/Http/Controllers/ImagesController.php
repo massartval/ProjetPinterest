@@ -53,6 +53,7 @@ class ImagesController extends Controller
         $path = $request->file->store('images', 'public');
 
         Image::create([
+            'user_id' => Auth::user()["id"],
             'user' => Auth::user()["pseudo"],
             'title' => $request['title'],
             'description' => $request['description'],

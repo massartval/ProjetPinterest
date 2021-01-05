@@ -10,7 +10,7 @@
     <img class="profile_picture" src="{{$info->profile_picture_path}}" alt="picture">
     <h2>{{$info->pseudo}}</h2>
 </div>
-<div class="gallery">
+<div class="row gallery mt-4">
 @foreach($images as $image)
     <div class="item">
         <h4>{{$image->title}}</h4>

@@ -15,6 +15,7 @@ class Images extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');
             $table->string('user');
             $table->string('title');
             $table->string('description');

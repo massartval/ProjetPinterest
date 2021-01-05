@@ -9,5 +9,5 @@ class Image extends Model
 {
     protected $table = 'images';
     public $timestamps = false;
-    protected $fillable =['id', 'user', 'title','description','path'];
+    protected $fillable =['id', 'user_id', 'user', 'title','description','path'];
 }

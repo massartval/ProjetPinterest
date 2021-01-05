@@ -10,7 +10,7 @@
         <h4>{{$image->title}}</h4>
         <a href="{{asset("storage/$image->path")}}" target="_blank"><img class="images" src="{{asset("storage/$image->path")}}" alt="wtf"></a>
         <p>{{$image->description}}</p>
-        <a href="../profile/{{$image->user}}">Made by {{$image->user}}</a>
+        <a href="../profile/{{$image->user_id}}">Made by {{$image->user}}</a>
     </div>
 </div>
 
