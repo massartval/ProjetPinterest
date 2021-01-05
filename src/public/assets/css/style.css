@@ -29,4 +29,10 @@
 .info .info_content {
   height: 100%;
 }
+
+.profile_picture {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
 /*# sourceMappingURL=style.css.map */

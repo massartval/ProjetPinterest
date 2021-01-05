@@ -39,3 +39,9 @@ Route::post('/image/search',[ImagesController::class,'search'])->name('search');
 
 //Route::delete('/image/delete/{id}',[ImagesController::class,'destroy']);
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/profile/{id}', [ProfileController::class, 'profile']);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
