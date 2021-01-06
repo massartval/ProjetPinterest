@@ -24,12 +24,25 @@
 <div class="row gallery mt-4">
 @foreach($images as $image)
     <div class="item">
-        <h4>{{$image->title}}</h4>
+        <p>{{$image->title}}</p>
         <a href="/image/{{$image->id}}" target="_blank"><img class="images" src="{{asset("storage/$image->path")}}" alt="wtf"></a> 
     </div>
 @endforeach
 </div>
 
+
+<div class="rowmt-4">
+<h3>Shared images</h3>
+    <div class="gallery">
+
+    @foreach($shares as $share)
+        <div class="item">
+            <p>Image by {{$share->author}}</p>
+            <a href="/image/{{$share->image_id}}"><img class="images" src="{{asset("storage/$share->path")}}" alt="wtf"></a> 
+        </div>
+    @endforeach
+    </div>
+</div>
 @endforeach
 
 @endsection

@@ -45,6 +45,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/profile/{id}/settings', [
 
 Route::middleware(['auth:sanctum', 'verified'])->patch('/profile/{id}/settings', [ProfileController::class, 'update']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->post('/share/{id}',[ProfileController::class,'share']);
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/unshare/{id}',[ProfileController::class,'unshare']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Image;
+use App\Models\Share;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,8 +20,10 @@ class ProfileController extends Controller
         $infos = User::where('id', '=', $id)->get();
 
         $images = Image::where('user_id', '=', $id)->get();
+
+        $shares = Share::where('user_id', '=', $id)->get();
         
-        return view('profile/dashboard',compact('infos', 'images'));
+        return view('profile/dashboard',compact('infos', 'images', 'shares'));
     }
 
     public function edit($id)
@@ -56,5 +59,32 @@ class ProfileController extends Controller
             'email' => $request['email']
         ]);
         return $this->profile($id);
+    }
+
+    public function share($id)
+    {
+        $image = Image::findOrFail($id);
+
+        $shares = Share::where('image_id', '=', $id)->get();
+
+        Share::create([
+            'user_id' => Auth::user()["id"],
+            'user_pseudo' => Auth::user()["pseudo"],
+            'image_id' => $id,
+            'path' => $image['path'],
+            'author' => $image['user']
+        ]);;
+        return view('images/info',compact('image', 'shares'));
+    }
+
+    public function unshare($id)
+    {
+        
+        $image = Image::findOrFail($id);
+        
+        Share::where('image_id', '=', $id)->delete();
+        $shares = Share::where('image_id', '=', $id)->get();
+
+        return view('images/info',compact('image', 'shares'));
     }
 }

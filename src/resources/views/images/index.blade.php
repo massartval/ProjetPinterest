@@ -18,7 +18,7 @@
         @foreach($images as $image)
                 <div class="item">
                     <h4>{{$image->title}}</h4>
-                    <a href="/image/{{$image->id}}" target="_blank"><img class="images" src="{{asset("storage/$image->path")}}" alt="wtf"></a> 
+                    <a href="/image/{{$image->id}}"><img class="images" src="{{asset("storage/$image->path")}}" alt="wtf"></a> 
                 </div>
         @endforeach
     </div>

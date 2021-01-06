@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
+use App\Models\Share;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,8 +23,10 @@ class ImagesController extends Controller
     public function info($id)
     {
         $image = Image::findOrFail($id);
+
+        $shares = Share::where('image_id', '=', $id)->get();
         
-        return view('images/info',compact('image'));
+        return view('images/info',compact('image', 'shares'));
     }
 
     /**
