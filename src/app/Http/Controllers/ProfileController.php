@@ -22,4 +22,45 @@ class ProfileController extends Controller
         
         return view('profile/dashboard',compact('infos', 'images'));
     }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        
+        return view('profile/settings',compact('user'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Facture  $facture
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        var_dump($request['pseudo']);
+        exit();
+
+        /* 
+        $path = $request->file->store('profile', 'public');
+        $this->validate(request(),[
+            'ref' => 'required|min:2|max:50',
+            'title' => 'required|min:2|max:20',
+            'price' => 'required|min:1|max:50',
+            'tva' => 'required|min:2|max:100',
+            'total' => 'required|min:2|max:50',
+            'client' => 'required|min:2|max:50'
+        ]);
+
+        Facture::where('id', $id)->update([
+            'ref' => $request['ref'],
+            'title' => $request['title'],
+            'price' => $request['price'],
+            'tva' => $request['tva'],
+            'total' => $request['total'],
+            'client' => $request['client']
+        ]);
+        return $this->profile($id); */
+    }
 }

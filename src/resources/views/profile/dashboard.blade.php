@@ -6,9 +6,20 @@
 @section('content')
 
 @foreach($infos as $info)
-<div class="user d-flex align-items-end">
-    <img class="profile_picture" src="{{$info->profile_picture_path}}" alt="picture">
-    <h2>{{$info->pseudo}}</h2>
+<div class="user d-flex align-items-end justify-content-between">
+    <div class="d-flex align-items-end">
+        <img class="profile_picture" src="{{$info->profile_picture_path}}" alt="picture">
+        <div>
+            <h2 class="m-0">{{$info->pseudo}}</h2>
+            <p class="mb-1">test</p>
+        </div>
+    </div>
+    @if(Auth::user()["id"]==$info->id)
+    <a href="/profile/{{Auth::user()["id"]}}/settings">settings</a>
+    @else
+    <p>nothello</p>
+    @endif
+    
 </div>
 <div class="row gallery mt-4">
 @foreach($images as $image)

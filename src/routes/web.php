@@ -41,7 +41,10 @@ Route::post('/image/search',[ImagesController::class,'search'])->name('search');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/profile/{id}', [ProfileController::class, 'profile']);
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/profile/{id}/settings', [ProfileController::class, 'edit']);
+
+Route::middleware(['auth:sanctum', 'verified'])->patch('/profile/{id}/settings', [ProfileController::class, 'update']);
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
