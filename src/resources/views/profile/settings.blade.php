@@ -7,7 +7,7 @@
 
 <h2>Settings</h2>
 
-<form class="d-flex flex-column" method="POST" action="/profile/{{$user->id}}/settings">
+<form class="d-flex flex-column" enctype="multipart/form-data" method="POST" action="/profile/{{$user->id}}/settings">
     {{ csrf_field() }}
     {{ method_field('PATCH') }}
     

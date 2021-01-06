@@ -25,10 +25,10 @@ class CreateNewUser implements CreatesNewUsers
             'pseudo'=> ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
-        ])->validate();
+        ])->validate();     
 
         return User::create([
-            'profile_picture_path'=> "/storage/profile/default.svg",
+            'profile_picture_path'=> "/profile/default.svg",
             'first_name'=> $input['first_name'],
             'last_name'=> $input['last_name'],
             'pseudo' => $input['pseudo'],

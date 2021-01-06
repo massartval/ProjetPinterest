@@ -3,10 +3,6 @@
 @section('title', 'create')
 @section('h1Title', 'Add a new image')
 
-<?php
-session_start();
-$_SESSION['user']="yaco";
-?>
 @section('content')
     <form method="POST" action="{{route('upload.uploadFile')}}" enctype="multipart/form-data">
     {{ csrf_field() }}

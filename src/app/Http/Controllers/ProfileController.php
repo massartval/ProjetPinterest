@@ -39,28 +39,22 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        var_dump($request['pseudo']);
-        exit();
+        $path = $request->file('profile_picture_path')->store('profile', 'public');
 
-        /* 
-        $path = $request->file->store('profile', 'public');
         $this->validate(request(),[
-            'ref' => 'required|min:2|max:50',
-            'title' => 'required|min:2|max:20',
-            'price' => 'required|min:1|max:50',
-            'tva' => 'required|min:2|max:100',
-            'total' => 'required|min:2|max:50',
-            'client' => 'required|min:2|max:50'
+            'first_name' => 'required|min:2|max:50',
+            'last_name' => 'required|min:2|max:20',
+            'pseudo' => 'required|min:1|max:50',
+            'email' => 'required|min:2|max:100',
         ]);
 
-        Facture::where('id', $id)->update([
-            'ref' => $request['ref'],
-            'title' => $request['title'],
-            'price' => $request['price'],
-            'tva' => $request['tva'],
-            'total' => $request['total'],
-            'client' => $request['client']
+        User::where('id', $id)->update([
+            'profile_picture_path'=> $path,
+            'first_name' => $request['first_name'],
+            'last_name' => $request['last_name'],
+            'pseudo' => $request['pseudo'],
+            'email' => $request['email']
         ]);
-        return $this->profile($id); */
+        return $this->profile($id);
     }
 }

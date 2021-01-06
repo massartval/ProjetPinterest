@@ -9,11 +9,6 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div>
-                <x-jet-label for="profile_picture_path" value="{{ __('Profile_picture_path') }}" />
-                <x-jet-input id="profile_picture_path" class="block mt-1 w-full" type="file" name="profile_picture_path" :value="old('profile_picture_path')" required autofocus autocomplete="profile_picture_path" />
-            </div>
-
             <div class="mt-4">
                 <x-jet-label for="first_name" value="{{ __('First_name') }}" />
                 <x-jet-input id="first_name" class="block mt-1 w-full" type="first_name" name="first_name" :value="old('first_name')" required />
