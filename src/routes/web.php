@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ImagesController;
 /*
@@ -12,7 +12,9 @@ use App\Http\Controllers\ImagesController;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
+Route::get('/hey', function () {
+    return view('welcome');
+});
 Route::get('/', [ImagesController::class, 'index']);
 
 ////PROFILE////
